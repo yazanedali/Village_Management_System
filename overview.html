@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styleo.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+
+      <div class="stat-item s1">
+        <h3>Total Number of Villages</h3>
+        <p>8</p>
+      </div>
+      <div class="stat-item s2">
+        <h3>Total Number of Urban Areas</h3>
+        <p>3</p>
+      </div>
+      <div class="stat-item s3">
+        <h3>Total Population Size</h3>
+        <p>660,000</p>
+      </div>
+      <div class="stat-item s4">
+        <h3>Average Land Area</h3>
+        <p>11.88 sq km</p>
+      </div>
+
+      <div class="chart-item c1">
+        <h3>Age Distribution</h3>
+      </div>
+      <div class="chart-item c2">
+        <h3>Gender Ratios</h3>
+      </div>
+      <div class="population"></div>
+    </div>
+
+    <script>
+      const map = L.map("map").setView([31.9686, 35.2433], 8);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
+        map
+      );
+    </script>
+  </body>
+</html>
