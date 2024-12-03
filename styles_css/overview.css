@@ -1,3 +1,4 @@
+/* Reset and global styles */
 * {
   margin: 0;
   padding: 0;
@@ -9,19 +10,22 @@ body {
   color: white;
   padding: 20px;
 }
+/* Dashboard Grid Layout */
 .dashboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+  /* Column positioning for stats */
+  /* Chart items */
 }
-.map-container {
+.dashboard .map-container {
   grid-column: 1 / span 4;
   height: 300px;
   background-color: #aaa;
   border-radius: 10px;
   overflow: hidden;
 }
-.stat-item {
+.dashboard .stat-item {
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -31,27 +35,27 @@ body {
   justify-content: center;
   align-items: center;
 }
-.stat-item h3 {
+.dashboard .stat-item h3 {
   font-size: 18px;
   margin-bottom: 10px;
 }
-.stat-item p {
+.dashboard .stat-item p {
   font-size: 24px;
   font-weight: bold;
 }
-.s1 {
+.dashboard .s1 {
   grid-column: 1;
 }
-.s2 {
+.dashboard .s2 {
   grid-column: 2;
 }
-.s3 {
+.dashboard .s3 {
   grid-column: 3;
 }
-.s4 {
+.dashboard .s4 {
   grid-column: 4;
 }
-.chart-item {
+.dashboard .chart-item {
   background-color: #2d2d3f;
   border-radius: 10px;
   padding: 20px;
@@ -61,19 +65,19 @@ body {
   justify-content: center;
   align-items: center;
 }
-.chart-item h3 {
+.dashboard .chart-item h3 {
   font-size: 18px;
   margin-bottom: 10px;
 }
-.c1 {
+.dashboard .c1 {
   grid-column: 1 / span 2;
   height: 400px;
 }
-.c2 {
+.dashboard .c2 {
   grid-column: 3 / span 2;
   height: 400px;
 }
-.population {
+.dashboard .population {
   background-color: #2d2d3f;
   border-radius: 10px;
   padding: 20px;
@@ -81,14 +85,15 @@ body {
   grid-column: 1 / span 4;
   height: 400px;
 }
+/* Responsive Design */
 @media (max-width: 768px) {
   .dashboard {
     grid-template-columns: 1fr;
   }
-  .map-container,
-  .stat-item,
-  .chart-item,
-  .population {
+  .dashboard .map-container,
+  .dashboard .stat-item,
+  .dashboard .chart-item,
+  .dashboard .population {
     grid-column: 1;
   }
 }

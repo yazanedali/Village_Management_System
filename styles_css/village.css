@@ -57,6 +57,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 15px;
 }
 .main-section .sort-pagination select {
   background-color: #3a3a3c;
@@ -164,7 +165,7 @@ body {
 .modal .modal-content form input,
 .modal .modal-content form select {
   width: 100%;
-  padding: 6px;
+  padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: none;

@@ -41,28 +41,38 @@
       const pageTitle = document.getElementById("page-title");
       const pageContent = document.getElementById("page-content");
 
+      // Toggle dashboard visibility
       menuBtn.addEventListener("click", () => {
         dashboard.classList.toggle("active");
       });
 
       const links = document.querySelectorAll("#dashboard a");
 
+      // Function to load page content
+      const loadPage = (page) => {
+        fetch(page)
+          .then((response) => response.text())
+          .then((data) => {
+            pageTitle.textContent = page.replace(".html", "").toUpperCase();
+            pageContent.innerHTML = data;
+          })
+          .catch((error) => {
+            console.error("Error loading the page:", error);
+            pageContent.innerHTML = "There was an error loading the page.";
+          });
+      };
+
+      // Set default page to overview.html
+      window.addEventListener("DOMContentLoaded", () => {
+        loadPage("overview.html");
+      });
+
+      // Attach event listeners to navigation links
       links.forEach((link) => {
         link.addEventListener("click", (event) => {
           event.preventDefault();
-
           const page = link.dataset.page;
-
-          fetch(page)
-            .then((response) => response.text())
-            .then((data) => {
-              pageTitle.textContent = page.replace(".html", "").toUpperCase();
-              pageContent.innerHTML = data;
-            })
-            .catch((error) => {
-              console.error("Error loading the page:", error);
-              pageContent.innerHTML = "There was an error loading the page.";
-            });
+          loadPage(page);
         });
       });
     </script>
