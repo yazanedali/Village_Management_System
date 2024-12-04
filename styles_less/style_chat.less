@@ -1,0 +1,161 @@
+@bg-color: #191936;
+@container-bg: #f7f7fa;
+@header-bg: #1e2833;
+@chat-bg: #1e2833;
+@admin-bg: #f7f7fa;
+@button-bg: #3db2ff;
+@button-hover: #0099ff;
+@text-color: #fff;
+@text-area: #000000;
+@border-radius: 5px;
+@padding: 10px;
+*{
+  margin: 0;
+  padding: 0;
+}
+.textarea-style() {
+  flex: 1;
+  padding: 5px;
+  font-size: 14px;
+  color: @text-color;
+  background-color: lighten(@container-bg, 5%);
+  border: none;
+  border-radius: @border-radius;
+  resize: none;
+}
+
+.button-style(@bg-color, @hover-color) {
+  padding: 10px 20px;
+  background-color: @bg-color;
+  border: none;
+  color: @text-color;
+  font-weight: bold;
+  border-radius: @border-radius;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: @hover-color;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: @bg-color;
+  color: @text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.container {
+ // width: 100vw;
+  padding: 10px 10px; 
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+
+h1, h2 {
+  margin: 0;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.available-admins {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: @border-radius;
+  background-color: @header-bg;
+
+  h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+  }
+
+  .admin-list {
+    display: flex;
+    gap: 10px;
+
+    .admin {
+      width: 40px;
+      height: 40px;
+      background-color: @admin-bg;
+      border-radius: 50%;
+    }
+  }
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
+  background-color: @header-bg;
+  padding: 10px;
+  border-radius: @border-radius;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  border: 2px solid #474646;
+  border-radius: @border-radius;
+  min-height: 100px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.message-box {
+  display: flex;
+  align-items: center;
+  padding: @padding;
+  background-color: lighten(@container-bg, 10%);
+  border-radius: @border-radius;
+
+  textarea {
+    .textarea-style(); 
+  }
+
+  .send-btn {
+    .button-style(@button-bg, @button-hover);  
+  }
+}
+
+.message-box1,
+.message-box {
+  textarea {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: @text-area;
+    background-color: lighten(@container-bg, 5%);
+    border: none;
+    border-radius: @border-radius;
+    resize: none;
+  }
+}
+
+.message-box1 {
+  textarea {
+    height: 30px;
+  }
+}
+
+.send-btn {
+  margin-top: 12px;
+  height: 25px;
+  width: 70px;
+  background-color: #0099ff;
+  border-radius: @border-radius;
+  border: none;
+  cursor: grab;
+}
