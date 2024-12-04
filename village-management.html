@@ -22,18 +22,61 @@
             </div>
 
             <div class="sort-pagination">
-                <select>
-                    <option value="default">Default Order</option>
-                    <option value="alphabetical">Alphabetical</option>
-                </select>
+                <div class="order">
+                    <p>Sorted by:</p>
+                    <select>
+                        <option value="default">Default</option>
+                        <option value="alphabetical">Alphabetical</option>
+                    </select>
+                </div>
                 <div class="pagination">
-                    <button class="prev">Previous</button>
+                    <p class = "page">Page:</p>
+                    <button class="prev">Prev</button>
                     <button class="next">Next</button>
                 </div>
             </div>
 
             <div id="villageList">
-                <!-- Villages will be added here dynamically -->
+
+                <div class="village" data-index="0">
+                    <span>Jabalia - Gaza Strip</span>
+                    <div class="btns">
+                        <button class="view-btn" data-village='{"index":0,"name":"Jabalia","region":"Gaza Strip","landArea":"10","latitude":"31.9522","longitude":"35.2034","tags":"agricultural","image":"#"}'>View</button>
+                        <button class="update-btn" data-village='{"index":0,"name":"Jabalia","region":"Gaza Strip","landArea":"10","latitude":"31.9522","longitude":"35.2034","tags":"agricultural","image":"#"}'>Update</button>
+                        <button class="delete-btn">Delete</button>
+                        <button>Update Demographics</button>
+                    </div>
+                </div>
+            
+                <div class="village" data-index="1">
+                    <span>Beit Lahia - Gaza Strip</span>
+                    <div class="btns">
+                        <button class="view-btn" data-village='{"index":0,"name":"Bait Lahia","region":"Gaza Strip","landArea":"12","latitude":"31.2522","longitude":"35.6034","tags":"agricultural","image":"#"}'>View</button>
+                        <button class="update-btn" data-village='{"index":0,"name":"Bait Lahia","region":"Gaza Strip","landArea":"12","latitude":"31.2522","longitude":"35.6034","tags":"agricultural","image":"#"}'>Update</button>
+                        <button class="delete-btn">Delete</button>
+                        <button>Update Demographics</button>
+                    </div>
+                </div>
+            
+                <div class="village" data-index="2">
+                    <span>Yanbu - Western Region</span>
+                    <div class="btns">
+                        <button class="view-btn" data-village='{"index":2,"name":"Yanbu","region":"Western Region","landArea":"180","latitude":"24.0891","longitude":"38.0619","tags":"mixed","image":"https://example.com/village3.jpg"}'>View</button>
+                        <button class="update-btn" data-village='{"index":2,"name":"Yanbu","region":"Western Region","landArea":"180","latitude":"24.0891","longitude":"38.0619","tags":"mixed","image":"https://example.com/village3.jpg"}'>Update</button>
+                        <button class="delete-btn">Delete</button>
+                        <button>Update Demographics</button>
+                    </div>
+                </div>
+            
+                <div class="village" data-index="3">
+                    <span>Al-Qatif - Eastern Region</span>
+                    <div class="btns">
+                        <button class="view-btn" data-village='{"index":3,"name":"Al-Qatif","region":"Eastern Region","landArea":"165","latitude":"26.5196","longitude":"50.0115","tags":"agricultural","image":"https://example.com/village4.jpg"}'>View</button>
+                        <button class="update-btn" data-village='{"index":3,"name":"Al-Qatif","region":"Eastern Region","landArea":"165","latitude":"26.5196","longitude":"50.0115","tags":"agricultural","image":"https://example.com/village4.jpg"}'>Update</button>
+                        <button class="delete-btn">Delete</button>
+                        <button>Update Demographics</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -153,62 +196,173 @@
 
     <script>
         function initializeVillageManagement() {
-            // Get DOM elements
-            const addVillageBtn = document.getElementById('addVillageBtn');
-            const villageModal = document.getElementById('villageModal');
-            const closeModalBtn = document.querySelector('.modal .close');
-            const villageForm = document.getElementById('villageForm');
-            const villageList = document.getElementById('villageList');
-            const searchInput = document.querySelector('.search-sort input');
-            const sortSelect = document.querySelector('.sort-pagination select');
+    // Get DOM elements
+    const addVillageBtn = document.getElementById('addVillageBtn');
+    const villageModal = document.getElementById('villageModal');
+    const closeModalBtn = document.querySelector('.modal .close');
+    const villageForm = document.getElementById('villageForm');
+    const villageList = document.getElementById('villageList');
+    const searchInput = document.querySelector('.search-sort input');
+    const sortSelect = document.querySelector('.sort-pagination select');
 
-            // Remove any existing event listeners
-            addVillageBtn?.removeEventListener('click', showModal);
-            closeModalBtn?.removeEventListener('click', hideModal);
-            villageForm?.removeEventListener('submit', handleFormSubmit);
+    // Remove any existing event listeners
+    addVillageBtn?.removeEventListener('click', showModal);
+    closeModalBtn?.removeEventListener('click', hideModal);
+    villageForm?.removeEventListener('submit', handleFormSubmit);
 
-            // Function to filter villages
-            function filterVillages(searchTerm) {
-                const villages = villageList.getElementsByClassName('village');
-                searchTerm = searchTerm.toLowerCase();
+    // Function to filter villages
+    function filterVillages(searchTerm) {
+        const villages = villageList.getElementsByClassName('village');
+        searchTerm = searchTerm.toLowerCase();
 
-                Array.from(villages).forEach(village => {
-                    const text = village.querySelector('span').textContent.toLowerCase();
-                    village.style.display = text.includes(searchTerm) ? '' : 'none';
-                });
+        Array.from(villages).forEach(village => {
+            const text = village.querySelector('span').textContent.toLowerCase();
+            village.style.display = text.includes(searchTerm) ? '' : 'none';
+        });
+    }
+
+    // Modal functions
+    function showModal() {
+        villageModal.style.display = 'flex';
+    }
+
+    function hideModal() {
+        villageModal.style.display = 'none';
+    }
+
+    // Handle View Button
+    function handleViewButton(event) {
+        if (event.target.classList.contains('view-btn')) {
+            const villageData = JSON.parse(event.target.dataset.village);
+            const viewModal = document.getElementById('viewVillageModal');
+            
+            // Fill modal with village data
+            document.getElementById('villageImage').src = villageData.image || '';
+            document.getElementById('villageNameDetail').textContent = villageData.name;
+            document.getElementById('regionDetail').textContent = villageData.region;
+            document.getElementById('landAreaDetail').textContent = villageData.landArea;
+            document.getElementById('latitudeDetail').textContent = villageData.latitude;
+            document.getElementById('longitudeDetail').textContent = villageData.longitude;
+            document.getElementById('tagsDetail').textContent = villageData.tags;
+
+            // Show modal
+            viewModal.style.display = 'flex';
+        }
+    }
+
+    // Handle Update Button
+    function handleUpdateButton(event) {
+        if (event.target.classList.contains('update-btn')) {
+            const villageData = JSON.parse(event.target.dataset.village);
+            const updateModal = document.getElementById('updateVillageModal');
+            
+            // Fill form with current data
+            document.getElementById('updateVillageId').value = villageData.index;
+            document.getElementById('updateVillageName').value = villageData.name;
+            document.getElementById('updateRegion').value = villageData.region;
+            document.getElementById('updateLandArea').value = villageData.landArea;
+            document.getElementById('updateLatitude').value = villageData.latitude;
+            document.getElementById('updateLongitude').value = villageData.longitude;
+            document.getElementById('updateCategories').value = villageData.tags;
+
+            // Show current image if exists
+            const currentImageDiv = document.getElementById('currentImage');
+            if (villageData.image) {
+                currentImageDiv.innerHTML = `
+                    <img src="${villageData.image}" alt="Current Image">
+                    <p>Current Image</p>
+                `;
+            } else {
+                currentImageDiv.innerHTML = '<p>No current image</p>';
             }
 
-            // Modal functions
-            function showModal() {
-                villageModal.style.display = 'flex';
+            // Show modal
+            updateModal.style.display = 'flex';
+        }
+    }
+
+    // Handle Delete Button
+    function handleDeleteButton(event) {
+        if (event.target.classList.contains('delete-btn')) {
+            const villageDiv = event.target.closest('.village');
+            if (villageDiv && confirm('Are you sure you want to delete this village?')) {
+                villageDiv.style.opacity = '0';
+                setTimeout(() => villageDiv.remove(), 300);
+            }
+        }
+    }
+
+    // Form submission handler for new village
+    function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const villageName = document.getElementById('villageName').value;
+        const region = document.getElementById('region').value;
+        const landArea = document.getElementById('landArea').value;
+        const latitude = document.getElementById('latitude').value;
+        const longitude = document.getElementById('longitude').value;
+        const categories = document.getElementById('categories').value;
+        const fileInput = document.getElementById('file');
+        
+        let imageUrl = '';
+        if (fileInput.files && fileInput.files[0]) {
+            imageUrl = URL.createObjectURL(fileInput.files[0]);
+        }
+
+        const villageIndex = villageList.children.length;
+        const villageDiv = document.createElement('div');
+        villageDiv.className = 'village';
+        villageDiv.dataset.index = villageIndex;
+
+        const villageData = {
+            index: villageIndex,
+            name: villageName,
+            region: region,
+            landArea: landArea,
+            latitude: latitude,
+            longitude: longitude,
+            tags: categories,
+            image: imageUrl
+        };
+
+        villageDiv.innerHTML = `
+            <span>${villageName} - ${region}</span>
+            <div class="btns">
+                <button class="view-btn" data-village='${JSON.stringify(villageData)}'>View</button>
+                <button class="update-btn" data-village='${JSON.stringify(villageData)}'>Update</button>
+                <button class="delete-btn">Delete</button>
+                <button>Update Demographics</button>
+            </div>
+        `;
+
+        villageList.appendChild(villageDiv);
+        hideModal();
+        villageForm.reset();
+    }
+
+    // Handle Update Form Submit
+    const updateVillageForm = document.getElementById('updateVillageForm');
+    if (updateVillageForm) {
+        updateVillageForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const villageIndex = document.getElementById('updateVillageId').value;
+            const villageName = document.getElementById('updateVillageName').value;
+            const region = document.getElementById('updateRegion').value;
+            const landArea = document.getElementById('updateLandArea').value;
+            const latitude = document.getElementById('updateLatitude').value;
+            const longitude = document.getElementById('updateLongitude').value;
+            const categories = document.getElementById('updateCategories').value;
+            const fileInput = document.getElementById('updateFile');
+
+            let imageUrl = '';
+            if (fileInput.files && fileInput.files[0]) {
+                imageUrl = URL.createObjectURL(fileInput.files[0]);
             }
 
-            function hideModal() {
-                villageModal.style.display = 'none';
-            }
-
-            // Form submission handler
-            function handleFormSubmit(event) {
-                event.preventDefault();
-
-                const villageName = document.getElementById('villageName').value;
-                const region = document.getElementById('region').value;
-                const landArea = document.getElementById('landArea').value;
-                const latitude = document.getElementById('latitude').value;
-                const longitude = document.getElementById('longitude').value;
-                const categories = document.getElementById('categories').value;
-                const fileInput = document.getElementById('file');
-                
-                let imageUrl = '';
-                if (fileInput.files && fileInput.files[0]) {
-                    imageUrl = URL.createObjectURL(fileInput.files[0]);
-                }
-
-                const villageIndex = villageList.children.length;
-                const villageDiv = document.createElement('div');
-                villageDiv.className = 'village';
-                villageDiv.dataset.index = villageIndex;
-
+            // Find the village div to update
+            const villageDiv = document.querySelector(`.village[data-index="${villageIndex}"]`);
+            if (villageDiv) {
                 const villageData = {
                     index: villageIndex,
                     name: villageName,
@@ -217,9 +371,10 @@
                     latitude: latitude,
                     longitude: longitude,
                     tags: categories,
-                    image: imageUrl
+                    image: imageUrl || JSON.parse(villageDiv.querySelector('.view-btn').dataset.village).image
                 };
 
+                // Update village display
                 villageDiv.innerHTML = `
                     <span>${villageName} - ${region}</span>
                     <div class="btns">
@@ -229,70 +384,74 @@
                         <button>Update Demographics</button>
                     </div>
                 `;
-
-                villageList.appendChild(villageDiv);
-                hideModal();
-                villageForm.reset();
             }
 
-            // Add event listeners
-            if (addVillageBtn) {
-                addVillageBtn.addEventListener('click', showModal);
-            }
+            // Close modal and reset form
+            document.getElementById('updateVillageModal').style.display = 'none';
+            updateVillageForm.reset();
+        });
+    }
 
-            if (closeModalBtn) {
-                closeModalBtn.addEventListener('click', hideModal);
-            }
+    // Add event listeners
+    if (addVillageBtn) {
+        addVillageBtn.addEventListener('click', showModal);
+    }
 
-            if (villageForm) {
-                villageForm.addEventListener('submit', handleFormSubmit);
-            }
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', hideModal);
+    }
 
-            if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    filterVillages(e.target.value);
-                });
-            }
+    if (villageForm) {
+        villageForm.addEventListener('submit', handleFormSubmit);
+    }
 
-            if (sortSelect) {
-                sortSelect.addEventListener('change', (e) => {
-                    const villages = Array.from(villageList.getElementsByClassName('village'));
-                    villages.sort((a, b) => {
-                        const textA = a.querySelector('span').textContent.toLowerCase();
-                        const textB = b.querySelector('span').textContent.toLowerCase();
-                        return e.target.value === 'alphabetical' 
-                            ? textA.localeCompare(textB)
-                            : parseInt(a.dataset.index) - parseInt(b.dataset.index);
-                    });
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            filterVillages(e.target.value);
+        });
+    }
 
-                    villages.forEach(village => villageList.appendChild(village));
-                });
-            }
-
-            // Handle delete functionality
-            villageList.addEventListener('click', (event) => {
-                if (event.target.classList.contains('delete-btn')) {
-                    const villageDiv = event.target.closest('.village');
-                    if (villageDiv && confirm('Are you sure you want to delete this village?')) {
-                        villageDiv.style.opacity = '0';
-                        setTimeout(() => villageDiv.remove(), 300);
-                    }
-                }
+    if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+            const villages = Array.from(villageList.getElementsByClassName('village'));
+            villages.sort((a, b) => {
+                const textA = a.querySelector('span').textContent.toLowerCase();
+                const textB = b.querySelector('span').textContent.toLowerCase();
+                return e.target.value === 'alphabetical' 
+                    ? textA.localeCompare(textB)
+                    : parseInt(a.dataset.index) - parseInt(b.dataset.index);
             });
 
-            // Close modals when clicking outside
-            window.addEventListener('click', (event) => {
-                if (event.target.classList.contains('modal')) {
-                    event.target.style.display = 'none';
-                }
-            });
+            villages.forEach(village => villageList.appendChild(village));
+        });
+    }
+
+    // Add click event listeners for view, update and delete
+    villageList.addEventListener('click', (event) => {
+        handleViewButton(event);
+        handleUpdateButton(event);
+        handleDeleteButton(event);
+    });
+
+    // Close buttons functionality for all modals
+    document.querySelectorAll('.modal .close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', function() {
+            this.closest('.modal').style.display = 'none';
+        });
+    });
+
+    // Close modals when clicking outside
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
         }
+    });
+}
 
-        // Initialize when the script loads
-        initializeVillageManagement();
+// Initialize when the script loads
+initializeVillageManagement();
 
-        // Export for external use
-        window.initializeVillageManagement = initializeVillageManagement;
-    </script>
+// Export for external use
+window.initializeVillageManagement = initializeVillageManagement;</script>
 </body>
 </html>
