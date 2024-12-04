@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #0f172a; /* خلفية الصفحة */
+    background-color: #0f172a; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,7 @@ body {
 }
 
 .login-container {
-    background-color: #1e293b; /* خلفية الحاوية */
+    background-color: #1e293b; 
     padding: 25px 35px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -41,25 +41,25 @@ body {
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    border: 1px solid #334155; /* لون الحدود */
+    border: 1px solid #334155; 
     border-radius: 6px;
-    background-color: #ffffff; /* لون خلفية الحقل أبيض */
-    color: #0f172a; /* لون النص داخل الحقل (غامق) */
+    background-color: #ffffff; 
+    color: #0f172a; 
 }
 
 .input-group input::placeholder {
-    color: #94a3b8; /* لون النص الإرشادي */
+    color: #94a3b8; /
 }
 
 .input-group input:focus {
-    border-color: #3b82f6; /* لون الحدود عند التركيز */
+    border-color: #3b82f6; 
     outline: none;
 }
 
 .login-btn {
     width: 100%;
     padding: 12px;
-    background-color: #3b82f6; /* لون الزر */
+    background-color: #3b82f6; 
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -69,7 +69,7 @@ body {
 }
 
 .login-btn:hover {
-    background-color: #2563eb; /* لون الزر عند التمرير */
+    background-color: #2563eb; 
 }
 
 .signup-text {
