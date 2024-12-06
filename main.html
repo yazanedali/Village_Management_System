@@ -10,12 +10,35 @@
     <div id="dashboard">
       <h1>Dashboard</h1>
       <ul>
-        <li><a href="#" data-page="overview.html">Overview</a></li>
         <li>
-          <a href="#" data-page="village-management.html">Village Management</a>
+          <a
+            href="#"
+            data-page="overview.html"
+            data-script="scripts/overview.js"
+            >Overview</a
+          >
         </li>
-        <li><a href="#" data-page="chat.html">Chat</a></li>
-        <li><a href="#" data-page="gallery.html">Gallery</a></li>
+        <li>
+          <a
+            href="#"
+            data-page="village-management.html"
+            data-script="scripts/village-management.js"
+            >Village Management</a
+          >
+        </li>
+        <li>
+          <a href="#" data-page="chat.html" data-script="scripts/chat.js"
+            >Chat</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-page="gallery.html"
+            data-script="scripts/gallery.js.js"
+            >Gallery</a
+          >
+        </li>
       </ul>
       <div id="admin-info">
         <img src="#" alt="Admin" />
@@ -29,47 +52,6 @@
       <h2 id="page-title">Welcome to the Dashboard</h2>
       <div id="page-content">Loading...</div>
     </div>
-
-    <script>
-      const menuBtn = document.getElementById("menu-btn");
-      const dashboard = document.getElementById("dashboard");
-      const pageTitle = document.getElementById("page-title");
-      const pageContent = document.getElementById("page-content");
-
-      // Toggle dashboard visibility
-      menuBtn.addEventListener("click", () => {
-        dashboard.classList.toggle("active");
-      });
-
-      const links = document.querySelectorAll("#dashboard a");
-
-      // Function to load page content
-      const loadPage = (page) => {
-        fetch(page)
-          .then((response) => response.text())
-          .then((data) => {
-            pageTitle.textContent = page.replace(".html", "").toUpperCase();
-            pageContent.innerHTML = data;
-          })
-          .catch((error) => {
-            console.error("Error loading the page:", error);
-            pageContent.innerHTML = "There was an error loading the page.";
-          });
-      };
-
-      // Set default page to overview.html
-      window.addEventListener("DOMContentLoaded", () => {
-        loadPage("overview.html");
-      });
-
-      // Attach event listeners to navigation links
-      links.forEach((link) => {
-        link.addEventListener("click", (event) => {
-          event.preventDefault();
-          const page = link.dataset.page;
-          loadPage(page);
-        });
-      });
-    </script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
