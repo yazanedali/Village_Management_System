@@ -1,0 +1,201 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e2a38;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  padding: 10px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.header button {
+  background-color: #373a43;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.header button:hover {
+  background-color: #3c536a;
+}
+.main-section {
+  background-color: #2c2c2e;
+  padding: 15px;
+  border-radius: 8px;
+}
+.main-section .main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.main-section .main-header h1 {
+  margin: 0;
+}
+.main-section .search-sort {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.main-section .search-sort input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3a3a3c;
+  color: white;
+  margin-bottom: 6px;
+}
+.main-section .sort-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.main-section .sort-pagination .order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.main-section .sort-pagination select {
+  background-color: #3a3a3c;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 5px;
+  border: solid #606060;
+}
+.main-section .sort-pagination .pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.main-section .sort-pagination .pagination button {
+  background-color: #373a43;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.main-section .sort-pagination .pagination button:hover {
+  background-color: #3c536a;
+}
+.village {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: #3a3a3c;
+  border-radius: 5px;
+  margin-bottom: 6px;
+  transition: opacity 0.3s ease;
+}
+.village button {
+  margin-left: 5px;
+  background-color: #5c5c5e;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.village button:hover {
+  background-color: #6e6e70;
+}
+@media (max-width: 768px) {
+  .village {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .village .village {
+    font-size: 14px;
+  }
+  .village button {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5px;
+    text-align: center;
+  }
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-content {
+  background-color: #2c2c2e;
+  padding: 15px;
+  border-radius: 8px;
+  width: 400px;
+}
+.modal .modal-content .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal .modal-content .modal-header h3 {
+  margin: 0;
+}
+.modal .modal-content .modal-header .close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.modal .modal-content form {
+  margin-top: 15px;
+}
+.modal .modal-content form label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9em;
+  color: #ffffff;
+  font-weight: 500;
+}
+.modal .modal-content form input,
+.modal .modal-content form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3a3a3c;
+  color: white;
+  box-sizing: border-box;
+}
+.modal .modal-content form input:focus,
+.modal .modal-content form select:focus {
+  outline: 1px solid #606063;
+}
+.modal .modal-content form .form-group {
+  margin-bottom: 5px;
+}
+.modal .modal-content form button {
+  width: 100%;
+  padding: 8px;
+  background-color: #373a43;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal .modal-content form button:hover {
+  background-color: #3c536a;
+}
