@@ -1,12 +1,9 @@
-body {
+.container {
+  padding: 10px;
   font-family: Arial, sans-serif;
   background-color: #1e2a38;
   color: #ffffff;
   margin: 0;
-  padding: 0;
-}
-.container {
-  padding: 10px;
 }
 .header {
   display: flex;
@@ -161,7 +158,6 @@ body {
 }
 .modal .modal-content .img-view {
   width: 100%;
-  height: 100%;
 }
 .modal .modal-content form {
   margin-top: 15px;
