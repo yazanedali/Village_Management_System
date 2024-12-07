@@ -1,0 +1,90 @@
+@background-color: #0f172a;
+@container-bg: #1e293b;
+@text-color: #fff;
+@input-border-color: #3d4d70;
+@button-bg: #3b82f6;
+@hover-color: #3b82f6;
+@placeholder-color: #b0b0c3;
+@secondary-text-color: #94a3b8;
+@font-family: Arial, sans-serif;
+
+body {
+    margin: 0;
+    font-family: @font-family;
+    background-color: @background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: @text-color;
+
+    .signup-container {
+        background-color: @container-bg;
+        padding: 20px 30px;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: @text-color;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: lighten(@text-color, 20%);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid @input-border-color;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 14px;
+
+            &::placeholder {
+                color: @placeholder-color;
+            }
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: @button-bg;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: @text-color;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: darken(@hover-color, 5%);
+            }
+        }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: @secondary-text-color;
+        }
+
+        a {
+            color: @button-bg;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
