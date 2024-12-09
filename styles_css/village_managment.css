@@ -199,3 +199,6 @@
 .modal .modal-content form button:hover {
   background-color: #3c536a;
 }
+.modal .modal-content .detail {
+  padding: 10px;
+}
