@@ -68,7 +68,7 @@ h1, h2 {
   margin-bottom: 5px;
 }
 
-.available-admins {
+.available-list {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: @border-radius;
@@ -79,16 +79,39 @@ h1, h2 {
     font-size: 16px;
   }
 
-  .admin-list {
+  
+  .user-or-admin-list {
     display: flex;
     gap: 10px;
 
-    .admin {
+    .admin img {
       width: 40px;
       height: 40px;
-      background-color: @admin-bg;
       border-radius: 50%;
+      object-fit: cover;
     }
+    
+    .no-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: gray; 
+      display: inline-block;
+    }
+  
+   
+    .users{
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: gray; 
+      display: inline-block;
+    }
+    
+    
+    
+    
+    
   }
 }
 
@@ -158,4 +181,12 @@ h1, h2 {
   border-radius: @border-radius;
   border: none;
   cursor: grab;
+}
+
+.admin-message {
+  color: rgb(71, 112, 71);
+}
+
+.user-message {
+  color: rgb(71, 71, 148);
 }

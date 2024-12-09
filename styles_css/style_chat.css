@@ -26,25 +26,40 @@ h2 {
   font-size: 20px;
   margin-bottom: 5px;
 }
-.available-admins {
+.available-list {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
   background-color: #1e2833;
 }
-.available-admins h3 {
+.available-list h3 {
   margin: 0 0 10px 0;
   font-size: 16px;
 }
-.available-admins .admin-list {
+.available-list .user-or-admin-list {
   display: flex;
   gap: 10px;
 }
-.available-admins .admin-list .admin {
+.available-list .user-or-admin-list .admin img {
   width: 40px;
   height: 40px;
-  background-color: #f7f7fa;
   border-radius: 50%;
+  object-fit: cover;
+}
+.available-list .user-or-admin-list .no-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: gray;
+  /* لون الدائرة الفارغة */
+  display: inline-block;
+}
+.available-list .user-or-admin-list .users {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: gray;
+  display: inline-block;
 }
 .chat {
   display: flex;
@@ -118,4 +133,10 @@ h2 {
   border-radius: 5px;
   border: none;
   cursor: grab;
+}
+.admin-message {
+  color: #477047;
+}
+.user-message {
+  color: #474794;
 }

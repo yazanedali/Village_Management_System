@@ -1,49 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat with Admins</title>
-    <link rel="stylesheet" href="styles_css/style_chat.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Chat with Admins</h1>
-      <div class="message-box1">
-        <textarea placeholder="Search for an admin..." class="text1"></textarea>
-      </div>
-      <div class="available-admins">
-        <h3>Available Admins</h3>
-        <div class="admin-list">
-          <div>
-            <div class="admin"></div>
-            <p>Admin1</p>
-          </div>
-          <div>
-            <div class="admin"></div>
-            <p>Admin2</p>
-          </div>
-          <div>
-            <div class="admin"></div>
-            <p>Admin3</p>
-          </div>
-        </div>
-      </div>
-      <div class="chat">
-        <h2>Chat with: Admin1</h2>
-        <div class="messages">
-          <p><strong>Admin1:</strong> Hello! How can I assist you today?</p>
-          <p><strong>You:</strong> I have a question about my account.</p>
-          <p>
-            <strong>Admin1:</strong> Sure! Please provide your account details.
-          </p>
-        </div>
+<link rel="stylesheet" href="styles_css/style_chat.css" />
+<div class="container">
+  <h1 id="chatTitle">Chat</h1>
+  <div class="message-box1">
+    <textarea
+      placeholder="Search for an admin..."
+      class="text1"
+      id="searchBox"
+    ></textarea>
+  </div>
+  <div class="available-list">
+    <h3 id="listTitle">Available Users/Admins</h3>
+    <div class="user-or-admin-list" id="userOrAdminList"></div>
+  </div>
 
-        <div class="message-box">
-          <textarea placeholder="Type your message..."></textarea>
-        </div>
-        <button class="send-btn">Send</button>
-      </div>
+  <div class="chat" style="display: none">
+    <h2>Chat with: <span id="chatWith"></span></h2>
+    <div class="messages"></div>
+
+    <div class="message-box">
+      <textarea placeholder="Type your message..." id="messageInput"></textarea>
     </div>
-  </body>
-</html>
+    <button class="send-btn" id="sendButton">Send</button>
+  </div>
+</div>
