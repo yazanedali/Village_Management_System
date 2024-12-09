@@ -40,7 +40,7 @@
                         <button class="view-btn" data-village='{"index":0,"name":"Jabalia","region":"Gaza Strip","landArea":"10","latitude":"31.9522","longitude":"35.2034","tags":"agricultural","image":"#"}'>View</button>
                         <button class="update-btn" data-village='{"index":0,"name":"Jabalia","region":"Gaza Strip","landArea":"10","latitude":"31.9522","longitude":"35.2034","tags":"agricultural","image":"#"}'>Update</button>
                         <button class="delete-btn">Delete</button>
-                        <button>Update Demographics</button>
+                        <button class="add-btn">Update Demographics</button>
                     </div>
                 </div>
             
@@ -50,7 +50,7 @@
                         <button class="view-btn" data-village='{"index":0,"name":"Bait Lahia","region":"Gaza Strip","landArea":"12","latitude":"31.2522","longitude":"35.6034","tags":"agricultural","image":"#"}'>View</button>
                         <button class="update-btn" data-village='{"index":0,"name":"Bait Lahia","region":"Gaza Strip","landArea":"12","latitude":"31.2522","longitude":"35.6034","tags":"agricultural","image":"#"}'>Update</button>
                         <button class="delete-btn">Delete</button>
-                        <button>Update Demographics</button>
+                        <button class="add-btn">Update Demographics</button>
                     </div>
                 </div>
             
@@ -60,7 +60,7 @@
                         <button class="view-btn" data-village='{"index":2,"name":"Yanbu","region":"Western Region","landArea":"180","latitude":"24.0891","longitude":"38.0619","tags":"mixed","image":"https://example.com/village3.jpg"}'>View</button>
                         <button class="update-btn" data-village='{"index":2,"name":"Yanbu","region":"Western Region","landArea":"180","latitude":"24.0891","longitude":"38.0619","tags":"mixed","image":"https://example.com/village3.jpg"}'>Update</button>
                         <button class="delete-btn">Delete</button>
-                        <button>Update Demographics</button>
+                        <button class="add-btn">Update Demographics</button>
                     </div>
                 </div>
             
@@ -70,7 +70,7 @@
                         <button class="view-btn" data-village='{"index":3,"name":"Al-Qatif","region":"Eastern Region","landArea":"165","latitude":"26.5196","longitude":"50.0115","tags":"agricultural","image":"https://example.com/village4.jpg"}'>View</button>
                         <button class="update-btn" data-village='{"index":3,"name":"Al-Qatif","region":"Eastern Region","landArea":"165","latitude":"26.5196","longitude":"50.0115","tags":"agricultural","image":"https://example.com/village4.jpg"}'>Update</button>
                         <button class="delete-btn">Delete</button>
-                        <button>Update Demographics</button>
+                        <button class="add-btn">Update Demographics</button>
                     </div>
                 </div>
             </div>
@@ -119,6 +119,40 @@
         </div>
     </div>
 
+
+
+    <div id="demographicData" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Demographic Data for</h3>
+                <button class="close">&times;</button>
+            </div>
+            <form id="villageForm">
+              <div class="form-group">
+                  <label for="PopulationSize">Population Size</label>
+                  <input type="number" id="PopulationSize"  required />
+              </div>
+              <div class="form-group">
+                  <label for="AgeDistribution">Age Distribution</label>
+                  <input type="text" id="AgeDistribution" placeholder="e.g., 0-14: 30%, 15-64:60%, 65+: 10%" required />
+              </div>
+              <div class="form-group">
+                  <label for="GenderRation">Gender Ration</label>
+                  <input type="text" id="GenderRation" placeholder="e.g., Male: 51%, Female: 49%" required />
+              </div>
+              <div class="form-group">
+                  <label for="GrowthRate">Population Growth Rate</label>
+                  <input type="number" step="any" id="GrowthRate"  required />
+              </div>
+
+              <button type="submit">Add Demographic Data</button>
+          </form>
+          
+        </div>
+    </div>
+
+
+
     <!-- View Village Modal -->
     <div id="viewVillageModal" class="modal">
         <div class="modal-content">
@@ -128,13 +162,13 @@
             </div>
             <div class="village-details">
                
-                <p><strong>Name:</strong> <span id="villageNameDetail"></span></p>
-                <p><strong>Region:</strong> <span id="regionDetail"></span></p>
-                <p><strong>Land Area:</strong> <span id="landAreaDetail"></span> km²</p>
-                <p><strong>Latitude:</strong> <span id="latitudeDetail"></span></p>
-                <p><strong>Longitude:</strong> <span id="longitudeDetail"></span></p>
-                <p><strong>Categories:</strong> <span id="tagsDetail"></span></p>
-                <img id="villageImage" alt="Village Image" class="img-view">
+                <p class="detail"><strong>Name:</strong> <span id="villageNameDetail"></span></p>
+                <p class="detail"><strong>Region:</strong> <span id="regionDetail"></span></p>
+                <p class="detail"><strong>Latitude:</strong> <span id="latitudeDetail"></span></p>
+                <p class="detail"><strong>Longitude:</strong> <span id="longitudeDetail"></span></p>
+                <p class="detail"><strong>Land Area:</strong> <span id="landAreaDetail"></span> km²</p>
+                <p class="detail"><strong>Categories:</strong> <span id="tagsDetail"></span></p>
+                <img id="villageImage" alt="Village Image" class="img-view" class="detail">
             </div>
         </div>
     </div>

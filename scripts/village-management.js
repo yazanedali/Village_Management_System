@@ -90,6 +90,14 @@ function initializeVillageManagement() {
         }
     }
 }
+//Handle Add Demographic Data
+function handleAddDemographicDataButton(event) {
+    if (event.target.classList.contains('add-btn')) {
+        alert("add demographic data")
+        const viewModal = document.getElementById('demographicData');
+        viewModal.style.display = 'flex';
+    }
+}
 
 
   // Form submission handler for new village
@@ -131,7 +139,7 @@ function initializeVillageManagement() {
               <button class="view-btn" data-village='${JSON.stringify(villageData)}'>View</button>
               <button class="update-btn" data-village='${JSON.stringify(villageData)}'>Update</button>
               <button class="delete-btn">Delete</button>
-              <button>Update Demographics</button>
+              <button class="add-btn"">Update Demographics</button>
           </div>
       `;
 
@@ -181,7 +189,7 @@ function initializeVillageManagement() {
                       <button class="view-btn" data-village='${JSON.stringify(villageData)}'>View</button>
                       <button class="update-btn" data-village='${JSON.stringify(villageData)}'>Update</button>
                       <button class="delete-btn">Delete</button>
-                      <button>Update Demographics</button>
+                       <button class="add-btn">Update Demographics</button>
                   </div>
               `;
           }
@@ -231,6 +239,7 @@ function initializeVillageManagement() {
       handleViewButton(event);
       handleUpdateButton(event);
       handleDeleteButton(event);
+      handleAddDemographicDataButton(event);
   });
 
   // Close buttons functionality for all modals
