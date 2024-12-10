@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+
     <link rel="stylesheet" href="styles_css/overview.css" />
-  </head>
-  <body>
     <div class="dashboard">
       <div class="map-container">
         <div id="map"></div>
@@ -38,11 +31,3 @@
       <div class="population"></div>
     </div>
 
-    <script>
-      const map = L.map("map").setView([31.9686, 35.2433], 8);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
-        map
-      );
-    </script>
-  </body>
-</html>
