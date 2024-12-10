@@ -27,18 +27,15 @@ const loadPage = (page, script) => {
       if (script) {
         loadScript(script);
       }
-
       if (page === "overview.html") {
-        loadGoogleMapsAPI(); 
+        loadGoogleMapsAPI();
       }
-
     })
     .catch((error) => {
       console.error("Error loading the page:", error);
       pageContent.innerHTML = "There was an error loading the page.";
     });
 };
-
 
 const loadGoogleMapsAPI = () => {
   if (!document.querySelector('script[src*="maps.googleapis.com"]')) {
@@ -66,6 +63,8 @@ function initMap() {
     title: "Main Location",
   });
 }
+
+
 
 const loadScript = (src) => {
 
@@ -130,6 +129,3 @@ document.querySelector('a[href="#logout"]').addEventListener('click', function (
   window.location.href = 'login.html'; 
 });
 });
-
-
-
