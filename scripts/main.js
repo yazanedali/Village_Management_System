@@ -4,7 +4,6 @@ const pageTitle = document.getElementById("page-title");
 const pageContent = document.getElementById("page-content");
 const links = document.querySelectorAll("#dashboard a");
 
-
 menuBtn.addEventListener("click", () => {
   dashboard.classList.toggle("active");
 });
