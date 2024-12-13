@@ -4,8 +4,6 @@ const pageTitle = document.getElementById("page-title");
 const pageContent = document.getElementById("page-content");
 const links = document.querySelectorAll("#dashboard a");
 
-let currentPage = '';
-let currentScript = null;
 
 menuBtn.addEventListener("click", () => {
   dashboard.classList.toggle("active");
@@ -38,14 +36,16 @@ const loadPage = (page, script) => {
       }
 
       if (script) {
-        loadScript(script);
+        loadScript(script)
       }
+      
     })
     .catch((error) => {
       console.error("Error loading the page:", error);
       pageContent.innerHTML = "There was an error loading the page.";
     });
 };
+
 
 const loadScript = (src) => {
   if (document.querySelector(`script[src="${src}"]`)) {
@@ -111,4 +111,9 @@ document.querySelector('a[href="#logout"]').addEventListener('click', function (
   localStorage.removeItem('username');
   localStorage.removeItem('typeUser');
   window.location.href = 'login.html';
+});
+
+
+
+  
 });

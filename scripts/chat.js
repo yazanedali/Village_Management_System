@@ -1,4 +1,4 @@
-
+function initializeVillageChat(){
 const chatTitle = document.getElementById("chatTitle");
 const listTitle = document.getElementById("listTitle");
 const userOrAdminList = document.getElementById("userOrAdminList");
@@ -163,3 +163,8 @@ function loadMessages(messages) {
     messagesDiv.appendChild(messageElement);
   });
 }
+}
+initializeVillageChat();
+
+// Export for external use
+window.initializeVillageChat = initializeVillageChat;
