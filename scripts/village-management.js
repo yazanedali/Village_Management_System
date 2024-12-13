@@ -1,5 +1,10 @@
 function initializeVillageManagement() {
   // Get DOM elements
+  const userType = localStorage.getItem("userType");
+  const viewButtons = document.querySelectorAll(".view-btn");
+  const updateButtons = document.querySelectorAll(".update-btn");
+  const deleteButtons = document.querySelectorAll(".delete-btn");
+  const addButtons = document.querySelectorAll(".add-btn");
   const addVillageBtn = document.getElementById('addVillageBtn');
   const villageModal = document.getElementById('villageModal');
   const closeModalBtn = document.querySelector('.modal .close');
@@ -8,6 +13,22 @@ function initializeVillageManagement() {
   const searchInput = document.querySelector('.search-sort input');
   const sortSelect = document.querySelector('.sort-pagination select');
 
+
+  if (userType === "user") {
+
+    viewButtons.forEach(button => button.style.display = "inline-block");
+    updateButtons.forEach(button => button.style.display = "none");
+    deleteButtons.forEach(button => button.style.display = "none");
+    addButtons.forEach(button => button.style.display = "none");
+    addVillageBtn.style.display = "none";
+  } else if (userType === "admin") {
+
+    viewButtons.forEach(button => button.style.display = "inline-block");
+    updateButtons.forEach(button => button.style.display = "inline-block");
+    deleteButtons.forEach(button => button.style.display = "inline-block");
+    addButtons.forEach(button => button.style.display = "inline-block");
+    addVillageBtn.style.display = "inline-block";
+  }
   // Remove any existing event listeners
   addVillageBtn?.removeEventListener('click', showModal);
   closeModalBtn?.removeEventListener('click', hideModal);
@@ -67,8 +88,6 @@ function initializeVillageManagement() {
           document.getElementById('updateLatitude').value = villageData.latitude;
           document.getElementById('updateLongitude').value = villageData.longitude;
           document.getElementById('updateCategories').value = villageData.tags;
-
-
           updateModal.style.display = 'flex';
       }
   }
