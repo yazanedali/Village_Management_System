@@ -81,9 +81,9 @@ body {
   height: 400px;
 }
 .dashboard canvas {
-  align-items: center;
   width: 100% !important;
   height: 100% !important;
+  object-fit: contain;
 }
 .dashboard .population {
   background-color: #2d2d3f;
