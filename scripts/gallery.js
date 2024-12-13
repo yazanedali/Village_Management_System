@@ -1,3 +1,5 @@
+    function initializeVillageGallery(){
+    
     const button = document.querySelector(".btn");
     const container = document.querySelector(".container");
   
@@ -11,5 +13,10 @@
       </div>
       `;
     });
+  }
+  initializeVillageGallery();
+  
+  // Export for external use
+  window.initializeVillageGallery = initializeVillageGallery;
   
   
