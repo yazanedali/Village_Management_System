@@ -1,4 +1,3 @@
-/* Reset and global styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,25 +5,23 @@
 }
 body {
   font-family: Arial, sans-serif;
+  background-color: #1e1e2f;
   color: white;
   padding: 20px;
 }
-/* Dashboard Grid Layout */
 .dashboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
-  /* Column positioning for stats */
-  /* Chart items */
 }
-.dashboard .map-container {
+.map-container {
   grid-column: 1 / span 4;
   height: 300px;
   background-color: #aaa;
   border-radius: 10px;
   overflow: hidden;
 }
-.dashboard .stat-item {
+.stat-item {
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -34,27 +31,27 @@ body {
   justify-content: center;
   align-items: center;
 }
-.dashboard .stat-item h3 {
+.stat-item h3 {
   font-size: 18px;
   margin-bottom: 10px;
 }
-.dashboard .stat-item p {
+.stat-item p {
   font-size: 24px;
   font-weight: bold;
 }
-.dashboard .s1 {
+.s1 {
   grid-column: 1;
 }
-.dashboard .s2 {
+.s2 {
   grid-column: 2;
 }
-.dashboard .s3 {
+.s3 {
   grid-column: 3;
 }
-.dashboard .s4 {
+.s4 {
   grid-column: 4;
 }
-.dashboard .chart-item {
+.chart-item {
   background-color: #2d2d3f;
   border-radius: 10px;
   padding: 20px;
@@ -63,20 +60,27 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
-.dashboard .chart-item h3 {
+.chart-item h3 {
   font-size: 18px;
   margin-bottom: 10px;
 }
-.dashboard .c1 {
+.c1 {
   grid-column: 1 / span 2;
   height: 400px;
 }
-.dashboard .c2 {
+.c2 {
   grid-column: 3 / span 2;
   height: 400px;
 }
-.dashboard .population {
+canvas {
+  align-items: center;
+  width: 80% !important;
+  height: 80% !important;
+}
+.population {
   background-color: #2d2d3f;
   border-radius: 10px;
   padding: 20px;
@@ -84,15 +88,14 @@ body {
   grid-column: 1 / span 4;
   height: 400px;
 }
-/* Responsive Design */
 @media (max-width: 768px) {
   .dashboard {
     grid-template-columns: 1fr;
   }
-  .dashboard .map-container,
-  .dashboard .stat-item,
-  .dashboard .chart-item,
-  .dashboard .population {
+  .map-container,
+  .stat-item,
+  .chart-item,
+  .population {
     grid-column: 1;
   }
 }

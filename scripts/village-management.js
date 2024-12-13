@@ -100,7 +100,6 @@ function handleAddDemographicDataButton(event) {
 }
 
 
-  // Form submission handler for new village
   function handleFormSubmit(event) {
       event.preventDefault();
 

@@ -19,9 +19,9 @@ body {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
 }
 
 .btn {
@@ -34,14 +34,10 @@ body {
   color: @text-color;
   font-size: @font-size-medium;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-radius: @border-radius;
-}
+
 
 .item {
   display: flex;
@@ -51,6 +47,8 @@ body {
   height: 150px;
   background-color: @secondary-color;
   border-radius: @border-radius;
+  width: 300px; 
+  flex-shrink: 0; 
 }
 
 .img {
@@ -64,4 +62,10 @@ body {
   width: 90%;
   margin-top: 10px;
   font-size: @font-size-small;
+}
+
+@media (max-width: 883px) {
+  .item {
+    width: 100%; 
+  }
 }
